@@ -17,15 +17,15 @@ def analysis():
         image_uri = get_json['uri']
     except:
         return jsonify({'error': 'Missing URI in JSON'}), 400
-    
+    print(image_uri)
     # Try to get the text from the image
     try:
         res = read_image(image_uri)
-        
+        print(res)
         response_data = {
             "text": res
         }
-    
+
         return jsonify(response_data), 200
     except:
         return jsonify({'error': 'Error in processing'}), 500
